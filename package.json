@@ -31,5 +31,8 @@
       "standard --fix",
       "git add"
     ]
+  },
+  "standard": {
+    "parser": "babel-eslint"
   }
 }
