@@ -5,15 +5,29 @@ echo "# material-ui" >> README.md
 git init
 
 git add README.md
+
 git add .
+
 git commit -m "first commit"
+
 git remote add origin  https://github.com/surya-durgaputra/material-ui.git
 
+
+
+
+
 On subsequent updates:
+
 add everything to git: git add .
+
 get status of what changed: git status
+
 commit the changes locally: git commit -m "Tabs ar working. Changed Theme."
+
 push to github: git push -u origin master
+
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
