@@ -1,6 +1,9 @@
 On initial commit:
+
 echo "# material-ui" >> README.md
+
 git init
+
 git add README.md
 git add .
 git commit -m "first commit"
