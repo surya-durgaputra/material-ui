@@ -30,59 +30,43 @@ class App extends Component {
               docked={false}
               onRequestChange={open => this.setState({ open })}
             >
-              <NavLink to="/">
+              <NavLink exact to="/" activeClassName="active">
                 <MenuItem onTouchTap={this.handleClose}>Home</MenuItem>
               </NavLink>
-              <NavLink to="/logos">
+              <NavLink to="/logos" activeClassName="active">
                 <MenuItem onTouchTap={this.handleClose}>Logos</MenuItem>
               </NavLink>
-              <NavLink to="/posters">
+              <NavLink to="/posters" activeClassName="active">
                 <MenuItem onTouchTap={this.handleClose}>Posters</MenuItem>
               </NavLink>
-              <NavLink to="/letterhead">
+              <NavLink to="/letterhead" activeClassName="active">
                 <MenuItem onTouchTap={this.handleClose}>Letterhead</MenuItem>
               </NavLink>
-              <NavLink to="/share-a-story">
+              <NavLink to="/share-a-story" activeClassName="active">
                 <MenuItem onTouchTap={this.handleClose}>Share a Story</MenuItem>
               </NavLink>
-              <NavLink to="/service-request-form">
+              <NavLink to="/service-request-form" activeClassName="active">
                 <MenuItem onTouchTap={this.handleClose}>
                   Service Request Form
                 </MenuItem>
               </NavLink>
-              <NavLink to="/tutorial">
+              <NavLink to="/tutorial" activeClassName="active">
                 <MenuItem onTouchTap={this.handleClose}>Tutorial</MenuItem>
               </NavLink>
             </Drawer>
+            <Route exact path="/" render={() => <h1>Home View</h1>} />
+            <Route path="/logos" render={() => <h1>Logos View</h1>} />
+            <Route path="/posters" render={() => <h1>Posters View</h1>} />
+            <Route path="/letterhead" render={() => <h1>Letterhead View</h1>} />
             <Route
-              exact
-              path="/"
-              render={props => {
-                return <h1>Home View</h1>
-              }}
-            />
-            <Route exact path="/logos" render={() => <h1>Logos View</h1>} />
-            <Route exact path="/posters" render={() => <h1>Posters View</h1>} />
-            <Route
-              exact
-              path="/letterhead"
-              render={() => <h1>Letterhead View</h1>}
-            />
-            <Route
-              exact
               path="/share-a-story"
               render={() => <h1>Share a Story View</h1>}
             />
             <Route
-              exact
               path="/service-request-form"
               render={() => <h1>Service Request Form View</h1>}
             />
-            <Route
-              exact
-              path="/tutorial"
-              render={() => <h1>Tutorial View</h1>}
-            />
+            <Route path="/tutorial" render={() => <h1>Tutorial View</h1>} />
           </div>
         </MuiThemeProvider>
       </BrowserRouter>
