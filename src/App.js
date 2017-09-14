@@ -1,11 +1,21 @@
 import React, { Component } from 'react'
-import { BrowserRouter, Route, NavLink } from 'react-router-dom'
+import { BrowserRouter, Route, NavLink, Switch } from 'react-router-dom'
 import './App.css'
 import { AppBar, Drawer, MenuItem } from 'material-ui'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
+
 import fusTheme from './fusTheme'
+import Home from './views/Home'
+import Letterhead from './views/Letterhead'
+import Logos from './views/Logos'
+import NotFound from './views/NotFound'
+import Posters from './views/Posters'
+import ServiceRequest from './views/ServiceRequest'
+import Story from './views/Story'
+import Tutorial from './views/Tutorial'
+
 injectTapEventPlugin()
 
 class App extends Component {
@@ -49,19 +59,16 @@ class App extends Component {
               />
               <SideBarItem link="/tutorial" text="Tutorial" />
             </Drawer>
-            <Route exact path="/" render={() => <h1>Home View</h1>} />
-            <Route path="/logos" render={() => <h1>Logos View</h1>} />
-            <Route path="/posters" render={() => <h1>Posters View</h1>} />
-            <Route path="/letterhead" render={() => <h1>Letterhead View</h1>} />
-            <Route
-              path="/share-a-story"
-              render={() => <h1>Share a Story View</h1>}
-            />
-            <Route
-              path="/service-request-form"
-              render={() => <h1>Service Request Form View</h1>}
-            />
-            <Route path="/tutorial" render={() => <h1>Tutorial View</h1>} />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/logos" component={Logos} />
+              <Route path="/posters" component={Posters} />
+              <Route path="/letterhead" component={Letterhead} />
+              <Route path="/share-a-story" component={Story} />
+              <Route path="/service-request-form" component={ServiceRequest} />
+              <Route path="/tutorial" component={Tutorial} />
+              <Route component={NotFound} />
+            </Switch>
           </div>
         </MuiThemeProvider>
       </BrowserRouter>
