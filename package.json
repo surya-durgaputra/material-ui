@@ -26,14 +26,13 @@
     "prettier": "^1.6.1",
     "standard": "^10.0.3"
   },
+  "standard": {
+    "parser": "babel-eslint"
+  },
   "lint-staged": {
     "*.js": [
       "prettier --write --single-quote --no-semi",
-      "standard --fix",
       "git add"
     ]
-  },
-  "standard": {
-    "parser": "babel-eslint"
   }
 }
