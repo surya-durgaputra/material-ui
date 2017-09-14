@@ -28,7 +28,8 @@ add+commit:git commit -am "Tabs ar working. Changed Theme."
 
 push to github: git push -u origin master
 
-Setup github to checkin from terminal without login everythime:
+
+Setup github to checkin from terminal without login everytime:
 
 1)in terminal:
 
@@ -43,7 +44,7 @@ If it is a GitHub repository and you have administrative privileges, go to setti
 
 If your repository is administered by somebody else, give the administrator your id_rsa.pub.
 
-3) Set your remote URL to a form that supports SSH
+3)Set your remote URL to a form that supports SSH
 
 If you have done the steps above and are still getting the password prompt, make sure your repo URL is in the form:
 
