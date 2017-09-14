@@ -28,7 +28,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "prettyWithStandard",
+      "npm run prettyWithStandard",
       "git add"
     ]
   },
