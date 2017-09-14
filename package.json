@@ -15,7 +15,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "pretty": "prettier 'src/**/*.js' 'src/*.js' 'src/components/**/*.js' '*.js' --write --single-quote --no-semi && standard --fix",
+    "prettyWithStandard": "prettier 'src/!(registerServiceWorker).js' 'src/components/**/*.js' '*.js' --write --single-quote --no-semi && standard --fix",
+    "pretty": "prettier 'src/!(registerServiceWorker).js' 'src/components/**/*.js' '*.js' --write --single-quote --no-semi",
     "precommit": "lint-staged"
   },
   "devDependencies": {
