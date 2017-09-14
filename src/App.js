@@ -18,6 +18,20 @@ import Tutorial from './views/Tutorial'
 
 injectTapEventPlugin()
 
+const links = [
+  { isExact: true, linkTo: '/', text: 'Home' },
+  { isExact: false, linkTo: '/letterhead', text: 'Letterhead' },
+  { isExact: false, linkTo: '/logos', text: 'Logos' },
+  { isExact: false, linkTo: '/posters', text: 'Posters' },
+  {
+    isExact: false,
+    linkTo: '/service-request-form',
+    text: 'Service Request Form'
+  },
+  { isExact: false, linkTo: '/share-a-story', text: 'Share a Story' },
+  { isExact: false, linkTo: '/tutorial', text: 'Tutorial' }
+]
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -48,16 +62,14 @@ class App extends Component {
               docked={false}
               onRequestChange={open => this.setState({ open })}
             >
-              <SideBarItem link="/" text="Home" isExact />
-              <SideBarItem link="/logos" text="Logos" />
-              <SideBarItem link="/posters" text="Posters" />
-              <SideBarItem link="/letterhead" text="Letterhead" />
-              <SideBarItem link="/share-a-story" text="Share a story" />
-              <SideBarItem
-                link="/service-request-form"
-                text="Service Request Form"
-              />
-              <SideBarItem link="/tutorial" text="Tutorial" />
+              {links.map((link, i) => (
+                <SideBarItem
+                  link={link.linkTo}
+                  text={link.text}
+                  isExact={link.isExact}
+                  key={i}
+                />
+              ))}
             </Drawer>
             <Switch>
               <Route exact path="/" component={Home} />
