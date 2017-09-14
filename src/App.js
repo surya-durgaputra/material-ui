@@ -15,7 +15,15 @@ class App extends Component {
   }
   handleClose = () => this.setState({ open: false })
   handleToggle = () => this.setState({ open: !this.state.open })
+  SideBarItem = ({ link, text, isExact }) => {
+    return (
+      <NavLink exact={isExact} to={link} activeClassName="active">
+        <MenuItem onTouchTap={this.handleClose} primaryText={text} />
+      </NavLink>
+    )
+  }
   render() {
+    const SideBarItem = this.SideBarItem
     return (
       <BrowserRouter>
         <MuiThemeProvider muiTheme={getMuiTheme(fusTheme)}>
@@ -30,29 +38,16 @@ class App extends Component {
               docked={false}
               onRequestChange={open => this.setState({ open })}
             >
-              <NavLink exact to="/" activeClassName="active">
-                <MenuItem onTouchTap={this.handleClose}>Home</MenuItem>
-              </NavLink>
-              <NavLink to="/logos" activeClassName="active">
-                <MenuItem onTouchTap={this.handleClose}>Logos</MenuItem>
-              </NavLink>
-              <NavLink to="/posters" activeClassName="active">
-                <MenuItem onTouchTap={this.handleClose}>Posters</MenuItem>
-              </NavLink>
-              <NavLink to="/letterhead" activeClassName="active">
-                <MenuItem onTouchTap={this.handleClose}>Letterhead</MenuItem>
-              </NavLink>
-              <NavLink to="/share-a-story" activeClassName="active">
-                <MenuItem onTouchTap={this.handleClose}>Share a Story</MenuItem>
-              </NavLink>
-              <NavLink to="/service-request-form" activeClassName="active">
-                <MenuItem onTouchTap={this.handleClose}>
-                  Service Request Form
-                </MenuItem>
-              </NavLink>
-              <NavLink to="/tutorial" activeClassName="active">
-                <MenuItem onTouchTap={this.handleClose}>Tutorial</MenuItem>
-              </NavLink>
+              <SideBarItem link="/" text="Home" isExact />
+              <SideBarItem link="/logos" text="Logos" />
+              <SideBarItem link="/posters" text="Posters" />
+              <SideBarItem link="/letterhead" text="Letterhead" />
+              <SideBarItem link="/share-a-story" text="Share a story" />
+              <SideBarItem
+                link="/service-request-form"
+                text="Service Request Form"
+              />
+              <SideBarItem link="/tutorial" text="Tutorial" />
             </Drawer>
             <Route exact path="/" render={() => <h1>Home View</h1>} />
             <Route path="/logos" render={() => <h1>Logos View</h1>} />
