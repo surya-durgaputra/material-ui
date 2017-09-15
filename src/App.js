@@ -7,6 +7,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 
 import fusTheme from './fusTheme'
+import SideBarItem from './SideBarItem'
 import Home from './views/Home'
 import Letterhead from './views/Letterhead'
 import Logos from './views/Logos'
@@ -39,15 +40,7 @@ class App extends Component {
   }
   handleClose = () => this.setState({ open: false })
   handleToggle = () => this.setState({ open: !this.state.open })
-  SideBarItem = ({ link, text, isExact }) => {
-    return (
-      <NavLink exact={isExact} to={link} activeClassName="active">
-        <MenuItem onTouchTap={this.handleClose} primaryText={text} />
-      </NavLink>
-    )
-  }
   render() {
-    const SideBarItem = this.SideBarItem
     return (
       <BrowserRouter>
         <MuiThemeProvider muiTheme={getMuiTheme(fusTheme)}>
@@ -67,6 +60,7 @@ class App extends Component {
                   link={link.linkTo}
                   text={link.text}
                   isExact={link.isExact}
+                  handleClose={this.handleClose}
                   key={i}
                 />
               ))}
