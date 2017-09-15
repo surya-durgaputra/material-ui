@@ -1,9 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { MenuItem } from 'material-ui'
 
 const SideBarItem = props => (
-  <NavLink exact={props.isExact} to={props.link} activeClassName="active">
+  <NavLink
+    exact={props.isExact}
+    to={props.link}
+    activeClassName="active"
+    key={props.i}
+  >
     <MenuItem onTouchTap={props.handleClose} primaryText={props.text} />
   </NavLink>
 )
