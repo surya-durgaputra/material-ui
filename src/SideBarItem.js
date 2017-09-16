@@ -1,11 +1,15 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { MenuItem } from 'material-ui'
+import { ListItem } from 'material-ui/List'
 
 const SideBarItem = props => (
   <NavLink exact={props.isExact} to={props.link} activeClassName="active">
-    <MenuItem onTouchTap={props.handleClose} primaryText={props.text} />
+    <ListItem
+      onTouchTap={props.handleClose}
+      primaryText={props.text}
+      hoverColor="#eee"
+    />
   </NavLink>
 )
 
