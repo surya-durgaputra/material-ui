@@ -1,5 +1,10 @@
-import React, { Component } from 'react'
-import { Drawer } from 'material-ui'
+/* eslint-disable flowtype/require-valid-file-annotation */
+
+import React from 'react'
+import PropTypes from 'prop-types'
+import { withStyles } from 'material-ui/styles'
+import Drawer from 'material-ui/Drawer'
+
 import SideBarItem from './SideBarItem'
 
 const links = [
@@ -15,27 +20,68 @@ const links = [
   { isExact: false, linkTo: '/share-a-story', text: 'Share a Story' },
   { isExact: false, linkTo: '/tutorial', text: 'Tutorial' }
 ]
-
-class SideNav extends Component {
+var styles = {}
+class TemporaryDrawer extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { open: props.open }
+    this.state = {
+      open: {
+        top: false,
+        left: props.open,
+        bottom: false,
+        right: false
+      }
+    }
   }
-  handleClose = () => this.setState({ open: false })
-  handleToggle = () => this.setState({ open: !this.state.open })
+
+  // const styles = {
+  //     list: {
+  //       width: 250,
+  //       flex: 'initial',
+  //     },
+  //     listFull: {
+  //       width: 'auto',
+  //       flex: 'initial',
+  //     },
+  //   };
+  toggleDrawer = (side, open) => {
+    const drawerState = {}
+    drawerState[side] = open
+    this.setState({ open: drawerState })
+  }
+  handleLeftOpen = () => {
+    this.toggleDrawer('left', true)
+  }
+
+  handleLeftClose = () => {
+    this.toggleDrawer('left', false)
+  }
+
   render() {
+    styles = {
+      list: {
+        width: 250,
+        flex: 'initial'
+      },
+      listFull: {
+        width: 'auto',
+        flex: 'initial'
+      }
+    }
+    const classes = this.props.classes
+
     return (
       <Drawer
-        open={this.state.open}
-        docked={this.props.isDocked}
-        onRequestChange={open => this.setState({ open })}
+        open={this.state.open.left}
+        onRequestClose={this.handleLeftClose}
+        onClick={this.handleLeftClose}
       >
         {links.map((link, i) => (
           <SideBarItem
             link={link.linkTo}
             text={link.text}
             isExact={link.isExact}
-            handleClose={this.handleClose}
+            handleClose={this.handleLeftClose}
             key={i}
           />
         ))}
@@ -44,4 +90,8 @@ class SideNav extends Component {
   }
 }
 
-export default SideNav
+TemporaryDrawer.propTypes = {
+  classes: PropTypes.object.isRequired
+}
+
+export default withStyles(styles)(TemporaryDrawer)

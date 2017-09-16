@@ -9,7 +9,7 @@ const SideBarItem = props => (
     activeClassName="active"
     key={props.i}
   >
-    <MenuItem onTouchTap={props.handleClose} primaryText={props.text} />
+    <MenuItem onClick={props.handleClose}>{props.text}</MenuItem>
   </NavLink>
 )
 
