@@ -33,7 +33,6 @@ const SideBarItem = props => (
 //     )
 //   }
 // }
-
 SideBarItem.propTypes = {
   text: PropTypes.String.isRequired,
   i: PropTypes.number.isRequired,
