@@ -61,3 +61,30 @@ git remote show origin
 You can change the URL with:
 
 git remote set-url origin git+ssh://git@github.com/username/reponame.git
+
+MISCELLANEOUS:
+
+creating a new branch and switching to it(here material-ui-beta is the new branch name): git checkout -b material-ui-beta
+
+pushing changes to this branch: git push origin material-ui-beta
+
+switching to an already existing branch (here I am switching to master):  git checkout master
+
+(Flow when craeting a new branch, merging changes there and then come back to original branch...we often do this if we dont want this code in the main branch):
+
+(we are currently in master. We dont want to commit code changes to this branch)
+
+(create the new branch and switch to it):git checkout -b material-ui-beta
+
+(run status to see what changes are there to commit): git status
+
+(run add to add all changes as well as untracked{newly added} files): git add .
+
+(run status to see all the changes to be committed {they will now be all in green}): git status
+
+(commit to the new branch we created above): git commit -am "my commit message"
+
+(push changes to the new branch we created above): git push origin material-ui-beta
+
+(now switch back to original branch..master in this case. This will automatically revert the code to the older branch): git checkout master
+
