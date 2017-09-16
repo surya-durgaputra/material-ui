@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import './App.css'
+import './styles/materialize-grid.css'
 import { AppBar } from 'material-ui'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import injectTapEventPlugin from 'react-tap-event-plugin'
@@ -26,7 +27,7 @@ class App extends Component {
         <MuiThemeProvider muiTheme={getMuiTheme(fusTheme)}>
           <div>
             <AppBar
-              title="Title"
+              title="Resource Center"
               iconClassNameRight="muidocs-icon-navigation-expand-more"
               onLeftIconButtonTouchTap={() => {
                 this.sideNav.handleToggle()

@@ -4,12 +4,7 @@ import PropTypes from 'prop-types'
 import { MenuItem } from 'material-ui'
 
 const SideBarItem = props => (
-  <NavLink
-    exact={props.isExact}
-    to={props.link}
-    activeClassName="active"
-    key={props.i}
-  >
+  <NavLink exact={props.isExact} to={props.link} activeClassName="active">
     <MenuItem onTouchTap={props.handleClose} primaryText={props.text} />
   </NavLink>
 )
@@ -34,8 +29,7 @@ const SideBarItem = props => (
 //   }
 // }
 SideBarItem.propTypes = {
-  text: PropTypes.String.isRequired,
-  i: PropTypes.number.isRequired,
+  text: PropTypes.string.isRequired,
   handleClose: PropTypes.func.isRequired,
   isExact: PropTypes.bool.isRequired,
   link: PropTypes.string.isRequired
