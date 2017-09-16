@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Drawer } from 'material-ui'
 import SideBarItem from './SideBarItem'
 
@@ -42,6 +43,11 @@ class SideNav extends Component {
       </Drawer>
     )
   }
+}
+
+SideNav.propTypes = {
+  open: PropTypes.bool.isRequired,
+  isDocked: PropTypes.bool.isRequired
 }
 
 export default SideNav

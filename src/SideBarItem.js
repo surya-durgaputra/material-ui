@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import { MenuItem } from 'material-ui'
 
 const SideBarItem = props => (
@@ -32,5 +33,11 @@ const SideBarItem = props => (
 //     )
 //   }
 // }
-
+SideBarItem.propTypes = {
+  text: PropTypes.String.isRequired,
+  i: PropTypes.number.isRequired,
+  handleClose: PropTypes.func.isRequired,
+  isExact: PropTypes.bool.isRequired,
+  link: PropTypes.string.isRequired
+}
 export default SideBarItem
