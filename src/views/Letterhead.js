@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Card, CardTitle, CardMedia, CardActions } from 'material-ui/Card'
-import FlatButton from 'material-ui/FlatButton'
+import LetterheadCard from '../LetterheadCard'
 
 class Letterhead extends Component {
   render() {
@@ -31,10 +30,20 @@ class Letterhead extends Component {
           </div>
         </div>
         <div className="row">
-          <div className="col s12 m6">
+          <LetterheadCard
+            imgUrl="https://unsplash.it/600/776/?random=1"
+            title="Card title"
+            label="Action1"
+          />
+          <LetterheadCard
+            imgUrl="https://unsplash.it/600/776/?random=2"
+            title="Card title"
+            label="Action1"
+          />
+          {/* <div className="col s12 m6" style={{ paddingBottom: '0.75rem' }}>
             <Card>
               <CardMedia>
-                <img src="https://unsplash.it/600/776/?random" alt="" />
+                <img src="https://unsplash.it/600/776/?random=1" alt="" />
               </CardMedia>
               <CardTitle title="Card title" />
               <CardActions>
@@ -42,41 +51,29 @@ class Letterhead extends Component {
               </CardActions>
             </Card>
           </div>
-          <div className="col s12 m6">
+          <div className="col s12 m6" style={{ paddingBottom: '0.75rem' }}>
             <Card>
               <CardMedia>
-                <img src="https://unsplash.it/600/776/?random" alt="" />
+                <img src="https://unsplash.it/600/776/?random=2" alt="" />
               </CardMedia>
               <CardTitle title="Card title" />
               <CardActions>
                 <FlatButton label="Action1" />
               </CardActions>
             </Card>
-          </div>
+          </div> */}
         </div>
         <div className="row">
-          <div className="col s12 m6">
-            <Card>
-              <CardMedia>
-                <img src="https://unsplash.it/600/776/?random" alt="" />
-              </CardMedia>
-              <CardTitle title="Card title" />
-              <CardActions>
-                <FlatButton label="Action1" />
-              </CardActions>
-            </Card>
-          </div>
-          <div className="col s12 m6">
-            <Card>
-              <CardMedia>
-                <img src="https://unsplash.it/600/776/?random" alt="" />
-              </CardMedia>
-              <CardTitle title="Card title" />
-              <CardActions>
-                <FlatButton label="Action1" />
-              </CardActions>
-            </Card>
-          </div>
+          <LetterheadCard
+            imgUrl="https://unsplash.it/600/776/?random=3"
+            title="Card title"
+            label="Action1"
+          />
+          <LetterheadCard
+            imgUrl="https://unsplash.it/600/776/?random=4"
+            title="Card title"
+            label="Action1"
+          />
         </div>
       </div>
     )

@@ -36,7 +36,7 @@ class SideNav extends Component {
             link={link.linkTo}
             text={link.text}
             isExact={link.isExact}
-            handleClose={this.handleClose}
+            onClick={this.handleClose}
             key={i}
           />
         ))}

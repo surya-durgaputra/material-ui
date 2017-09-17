@@ -6,7 +6,7 @@ import { ListItem } from 'material-ui/List'
 const SideBarItem = props => (
   <NavLink exact={props.isExact} to={props.link} activeClassName="active">
     <ListItem
-      onTouchTap={props.handleClose}
+      onTouchTap={props.onClick}
       primaryText={props.text}
       hoverColor="#eee"
     />
@@ -34,7 +34,7 @@ const SideBarItem = props => (
 // }
 SideBarItem.propTypes = {
   text: PropTypes.string.isRequired,
-  handleClose: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
   isExact: PropTypes.bool.isRequired,
   link: PropTypes.string.isRequired
 }
