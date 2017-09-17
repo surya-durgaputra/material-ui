@@ -8,7 +8,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 
 import fusTheme from './fusTheme'
-import SideNav from './SideNav'
+import SideNav from './components/SideNav'
 import Home from './views/Home'
 import Letterhead from './views/Letterhead'
 import Logos from './views/Logos'

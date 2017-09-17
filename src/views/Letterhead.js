@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import LetterheadCard from '../LetterheadCard'
+import GenericCard from '../components/GenericCard'
+import FlatButton from 'material-ui/FlatButton'
 
 class Letterhead extends Component {
   render() {
@@ -30,28 +31,52 @@ class Letterhead extends Component {
           </div>
         </div>
         <div className="row">
-          <LetterheadCard
-            imgUrl="https://unsplash.it/600/776/?random=1"
-            title="Card title"
-            label="Action1"
-          />
-          <LetterheadCard
-            imgUrl="https://unsplash.it/600/776/?random=2"
-            title="Card title"
-            label="Action1"
-          />
+          <div className="col s12 m6" style={{ paddingBottom: '0.75rem' }}>
+            <GenericCard
+              mediaImgSrc="https://placeimg.com/600/776/nature"
+              cardTitle="Card title"
+              cardActions={
+                <div>
+                  <FlatButton label="Action1" />
+                </div>
+              }
+            />
+          </div>
+          <div className="col s12 m6" style={{ paddingBottom: '0.75rem' }}>
+            <GenericCard
+              mediaImgSrc="https://placeimg.com/600/776/animals"
+              cardTitle="Card title"
+              cardActions={
+                <div>
+                  <FlatButton label="Action1" />
+                </div>
+              }
+            />
+          </div>
         </div>
         <div className="row">
-          <LetterheadCard
-            imgUrl="https://unsplash.it/600/776/?random=3"
-            title="Card title"
-            label="Action1"
-          />
-          <LetterheadCard
-            imgUrl="https://unsplash.it/600/776/?random=4"
-            title="Card title"
-            label="Action1"
-          />
+          <div className="col s12 m6" style={{ paddingBottom: '0.75rem' }}>
+            <GenericCard
+              mediaImgSrc="https://placeimg.com/600/776/arch"
+              cardTitle="Card title"
+              cardActions={
+                <div>
+                  <FlatButton label="Action1" />
+                </div>
+              }
+            />
+          </div>
+          <div className="col s12 m6" style={{ paddingBottom: '0.75rem' }}>
+            <GenericCard
+              mediaImgSrc="https://placeimg.com/600/776/tech"
+              cardTitle="Card title"
+              cardActions={
+                <div>
+                  <FlatButton label="Action1" />
+                </div>
+              }
+            />
+          </div>
         </div>
       </div>
     )
