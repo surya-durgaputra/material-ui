@@ -88,3 +88,10 @@ switching to an already existing branch (here I am switching to master):  git ch
 
 (now switch back to original branch..master in this case. This will automatically revert the code to the older branch): git checkout master
 
+
+
+MERGING a branch into master:
+let's say that we want to merge a branch called my_branch into master. Here's the flow:
+1)Change the current branch to master (change to the branch you are going to be merging into): git checkout master
+2)Now merge: git merge my_branch
+
