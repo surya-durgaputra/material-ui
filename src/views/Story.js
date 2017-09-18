@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import TextField from 'material-ui/TextField'
-import RaisedButton from 'material-ui/RaisedButton'
+import MaterializeRaisedButton from '../components/MaterializeRaisedButton'
 import '../styles/responsive-text.css'
 
 class Story extends Component {
@@ -69,7 +69,7 @@ class Story extends Component {
         </div>
         <div className="row">
           <div className="col s2">
-            <RaisedButton label="Submit" primary={true} />
+            <MaterializeRaisedButton label="Submit" primary={true} />
           </div>
         </div>
       </div>
