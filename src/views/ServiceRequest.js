@@ -1,11 +1,23 @@
 import React, { Component } from 'react'
-import Checkbox from 'material-ui/Checkbox'
-import TextField from 'material-ui/TextField'
-import DatePicker from 'material-ui/DatePicker'
+import { Checkbox, TextField, DatePicker } from 'material-ui'
 import MaterializeRaisedButton from '../components/MaterializeRaisedButton'
+import FileUpload from '../components/FileUpload'
 import '../styles/responsive-text.css'
 
 const styles = {
+  button: {
+    margin: 12
+  },
+  exampleImageInput: {
+    cursor: 'pointer',
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    right: 0,
+    left: 0,
+    width: '100%',
+    opacity: 0
+  },
   block: {
     maxWidth: 250
   },
@@ -133,7 +145,16 @@ class ServiceRequest extends Component {
             <DatePicker hintText="Portrait Dialog" />
           </div>
           <div className="col s12 m6">
-            <DatePicker hintText="File upload placeholder" />
+            {/* <MaterializeRaisedButton
+      label="Upload File"
+      labelPosition="before"
+      style={styles.button}
+      containerElement="label"
+      primary={true}
+    >
+      <input type="file" style={styles.exampleImageInput} />
+    </MaterializeRaisedButton> */}
+            <FileUpload uploadLabel="Upload" />
           </div>
         </div>
         <div className="row">
