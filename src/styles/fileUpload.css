@@ -78,7 +78,9 @@ textarea.materialize-textarea {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
-/*
+
+
+
 button, input, optgroup, select, textarea {
     color: inherit;
     font: inherit;
@@ -112,7 +114,7 @@ button, input, optgroup, select, textarea {
     vertical-align: middle;
     -webkit-tap-highlight-color: transparent;
 }
-*/
+
 *, *:before, *:after {
     -webkit-box-sizing: inherit;
     box-sizing: inherit;

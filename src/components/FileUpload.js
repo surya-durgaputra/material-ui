@@ -1,23 +1,23 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import '../styles/fileUpload.css'
-import MaterializeRaisedButton from './MaterializeRaisedButton'
+// import MaterializeRaisedButton from './MaterializeRaisedButton'
 
-const styles = {
-  button: {
-    marginTop: 12
-  },
-  exampleImageInput: {
-    cursor: 'pointer',
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    right: 0,
-    left: 0,
-    width: '100%',
-    opacity: 0
-  }
-}
+// const styles = {
+//   button: {
+//     marginTop: 12
+//   },
+//   exampleImageInput: {
+//     cursor: 'pointer',
+//     position: 'absolute',
+//     top: 0,
+//     bottom: 0,
+//     right: 0,
+//     left: 0,
+//     width: '100%',
+//     opacity: 0
+//   }
+// }
 
 class FileUpload extends Component {
   constructor(props) {
@@ -27,14 +27,18 @@ class FileUpload extends Component {
     }
   }
   handleFilePath = () => {
-    let file = document.getElementById('upload').files
+    let file = Array.from(document.getElementById('upload').files)
+
     if (file.length === 0) {
       this.setState({
         fileInput: null
       })
     } else {
       this.setState({
-        fileInput: file[0].name
+        fileInput: file.reduce(
+          (val, fileInst) => val + fileInst.name + ', ',
+          ''
+        )
       })
     }
   }
@@ -45,10 +49,24 @@ class FileUpload extends Component {
     return (
       <div className="row">
         <div className="file-field input-field">
-          <div className="col s12 m2">
-            {/* <div className="btn">
-                            <span>{uploadLabel}</span>
-                        </div> */}
+          <div className="btn">
+            <span>{uploadLabel}</span>
+            <input
+              id="upload"
+              type="file"
+              onChange={this.handleFilePath}
+              multiple
+            />
+          </div>
+          <div className="file-path-wrapper">
+            <input
+              className="file-path validate"
+              type="text"
+              value={fileValue}
+              readOnly
+            />
+          </div>
+          {/* <div className="col s12 m2">
             <MaterializeRaisedButton
               label={uploadLabel}
               labelPosition="before"
@@ -74,7 +92,7 @@ class FileUpload extends Component {
                 readOnly
               />
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     )
