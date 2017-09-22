@@ -17,6 +17,7 @@ import Posters from './views/Posters'
 import ServiceRequest from './views/ServiceRequest'
 import Story from './views/Story'
 import Tutorial from './views/Tutorial'
+import PlanningGuide from './views/PlanningGuide'
 
 injectTapEventPlugin()
 
@@ -48,6 +49,7 @@ class App extends Component {
               <Route path="/share-a-story" component={Story} />
               <Route path="/service-request-form" component={ServiceRequest} />
               <Route path="/tutorial" component={Tutorial} />
+              <Route path="/planning-guide" component={PlanningGuide} />
               <Route component={NotFound} />
             </Switch>
           </div>

@@ -14,7 +14,8 @@ const links = [
     text: 'Service Request Form'
   },
   { isExact: false, linkTo: '/share-a-story', text: 'Share a Story' },
-  { isExact: false, linkTo: '/tutorial', text: 'Tutorial' }
+  { isExact: false, linkTo: '/tutorial', text: 'Tutorial' },
+  { isExact: false, linkTo: '/planning-guide', text: 'Planning Guide' }
 ]
 
 class SideNav extends Component {
