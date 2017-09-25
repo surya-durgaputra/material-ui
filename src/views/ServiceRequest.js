@@ -28,7 +28,85 @@ const styles = {
 }
 
 class ServiceRequest extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {}
+    this.singleLineFields = ['Name', 'Email', 'Phone', 'Department']
+    this.multiLineFields = [
+      'Project Description',
+      'Project Goal',
+      'Project Budget',
+      'Key Messages',
+      'Primary Target Audience',
+      'Secondary Target Audience',
+      'Project Contact(if other than yourself)',
+      'Comments'
+    ]
+  }
+  formatLabelToPropertyName = label =>
+    label
+      .toLowerCase()
+      .split(' ')
+      .join('-')
+  handleInputChange = event => {
+    const target = event.target
+    const value = target.type === 'checkbox' ? target.checked : target.value
+    const name = target.name
+    this.setState({
+      [name]: value
+    })
+  }
+  componentWillMount() {
+    const singleLineProps = this.singleLineFields.reduce(
+      (acc, field) => ({
+        [this.formatLabelToPropertyName(field)]: '',
+        ...acc
+      }),
+      {}
+    )
+    const multiLineProps = this.multiLineFields.reduce(
+      (acc, field) => ({
+        [this.formatLabelToPropertyName(field)]: '',
+        ...acc
+      }),
+      {}
+    )
+    this.setState({ ...this.state, ...singleLineProps, ...multiLineProps })
+  }
   render() {
+    const SingleLineElement = (label, idx) => {
+      let formattedLabel = this.formatLabelToPropertyName(label)
+      return (
+        <div key={idx} className="col s12 m6 flow-text">
+          <TextField
+            floatingLabelText={label}
+            name={formattedLabel}
+            value={this.state[formattedLabel]}
+            fullWidth={true}
+            onChange={this.handleInputChange}
+          />
+          <br />
+        </div>
+      )
+    }
+
+    const MultiLineElement = (label, idx) => {
+      let formattedLabel = this.formatLabelToPropertyName(label)
+      return (
+        <div key={idx} className="col s12 m6 flow-text">
+          <TextField
+            floatingLabelText={label}
+            name={formattedLabel}
+            value={this.state[formattedLabel]}
+            fullWidth={true}
+            onChange={this.handleInputChange}
+            rows={2}
+            multiLine={true}
+          />
+          <br />
+        </div>
+      )
+    }
     return (
       <div className="container">
         <div className="row">
@@ -37,96 +115,10 @@ class ServiceRequest extends Component {
           </div>
         </div>
         <div className="row">
-          <div className="col s12 m6 flow-text">
-            <TextField floatingLabelText="Name" fullWidth={true} />
-            <br />
-          </div>
-          <div className="col s12 m6 flow-text">
-            <TextField floatingLabelText="Email" fullWidth={true} />
-            <br />
-          </div>
-          <div className="col s12 m6 flow-text">
-            <TextField floatingLabelText="Phone" fullWidth={true} />
-            <br />
-          </div>
-          <div className="col s12 m6 flow-text">
-            <TextField floatingLabelText="Department" fullWidth={true} />
-            <br />
-          </div>
+          {this.singleLineFields.map((field, i) => SingleLineElement(field, i))}
         </div>
         <div className="row">
-          <div className="col s12 m6">
-            <TextField
-              floatingLabelText="Project Description"
-              multiLine={true}
-              rows={2}
-              fullWidth={true}
-            />
-            <br />
-          </div>
-          <div className="col s12 m6">
-            <TextField
-              floatingLabelText="Project Goal"
-              multiLine={true}
-              rows={2}
-              fullWidth={true}
-            />
-            <br />
-          </div>
-          <div className="col s12 m6">
-            <TextField
-              floatingLabelText="Project Budget"
-              multiLine={true}
-              rows={2}
-              fullWidth={true}
-            />
-            <br />
-          </div>
-          <div className="col s12 m6">
-            <TextField
-              floatingLabelText="Key Messages"
-              multiLine={true}
-              rows={2}
-              fullWidth={true}
-            />
-            <br />
-          </div>
-          <div className="col s12 m6">
-            <TextField
-              floatingLabelText="Primary Target Audience"
-              multiLine={true}
-              rows={2}
-              fullWidth={true}
-            />
-            <br />
-          </div>
-          <div className="col s12 m6">
-            <TextField
-              floatingLabelText="Secondary Target Audience"
-              multiLine={true}
-              rows={2}
-              fullWidth={true}
-            />
-            <br />
-          </div>
-          <div className="col s12 m6">
-            <TextField
-              floatingLabelText="Project Contact(if other than yourself)"
-              multiLine={true}
-              rows={2}
-              fullWidth={true}
-            />
-            <br />
-          </div>
-          <div className="col s12 m6">
-            <TextField
-              floatingLabelText="Comments"
-              multiLine={true}
-              rows={2}
-              fullWidth={true}
-            />
-            <br />
-          </div>
+          {this.multiLineFields.map((field, i) => MultiLineElement(field, i))}
         </div>
 
         <div className="row">

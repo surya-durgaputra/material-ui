@@ -26,16 +26,16 @@ class FileUpload extends Component {
       fileInput: null
     }
   }
-  handleFilePath = () => {
-    let file = Array.from(document.getElementById('upload').files)
+  handleFilePath = event => {
+    let files = Array.from(event.target.files)
 
-    if (file.length === 0) {
+    if (files.length === 0) {
       this.setState({
         fileInput: null
       })
     } else {
       this.setState({
-        fileInput: file.reduce(
+        fileInput: files.reduce(
           (val, fileInst) => val + fileInst.name + ', ',
           ''
         )
