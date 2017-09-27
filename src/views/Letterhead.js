@@ -31,7 +31,10 @@ class Letterhead extends Component {
           </div>
         </div>
         <div className="row">
-          <div className="col s12 m6" style={{ paddingBottom: '0.75rem' }}>
+          <div
+            className="col s12 m6 letterhead-card"
+            style={{ paddingBottom: '0.75rem' }}
+          >
             <GenericCard
               mediaImgSrc="https://placeimg.com/600/776/nature"
               cardTitle="Card title"
@@ -42,7 +45,10 @@ class Letterhead extends Component {
               }
             />
           </div>
-          <div className="col s12 m6" style={{ paddingBottom: '0.75rem' }}>
+          <div
+            className="col s12 m6 letterhead-card"
+            style={{ paddingBottom: '0.75rem' }}
+          >
             <GenericCard
               mediaImgSrc="https://placeimg.com/600/776/animals"
               cardTitle="Card title"
@@ -55,7 +61,10 @@ class Letterhead extends Component {
           </div>
         </div>
         <div className="row">
-          <div className="col s12 m6" style={{ paddingBottom: '0.75rem' }}>
+          <div
+            className="col s12 m6 letterhead-card"
+            style={{ paddingBottom: '0.75rem' }}
+          >
             <GenericCard
               mediaImgSrc="https://placeimg.com/600/776/arch"
               cardTitle="Card title"
@@ -66,7 +75,10 @@ class Letterhead extends Component {
               }
             />
           </div>
-          <div className="col s12 m6" style={{ paddingBottom: '0.75rem' }}>
+          <div
+            className="col s12 m6 letterhead-card"
+            style={{ paddingBottom: '0.75rem' }}
+          >
             <GenericCard
               mediaImgSrc="https://placeimg.com/600/776/tech"
               cardTitle="Card title"
