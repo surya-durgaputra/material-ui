@@ -35,10 +35,7 @@ class FileUpload extends Component {
       })
     } else {
       this.setState({
-        fileInput: files.reduce(
-          (val, fileInst) => val + fileInst.name + ', ',
-          ''
-        )
+        fileInput: files.map(file => file.name).join(', ')
       })
     }
   }

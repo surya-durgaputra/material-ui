@@ -42,7 +42,26 @@ class ServiceRequest extends Component {
       'Project Contact(if other than yourself)',
       'Comments'
     ]
+    this.checkboxes = [
+      'Simple 1',
+      'Simple 2',
+      'Simple 3',
+      'Simple 4',
+      'Simple 5',
+      'Simple 6',
+      'Simple 7',
+      'Simple 8',
+      'Simple 9',
+      'Simple 10',
+      'Simple 11',
+      'Simple 12',
+      'Simple 13',
+      'Simple 14',
+      'Simple 15',
+      'Simple 16'
+    ]
   }
+
   formatLabelToPropertyName = label =>
     label
       .toLowerCase()
@@ -57,21 +76,39 @@ class ServiceRequest extends Component {
     })
   }
   componentWillMount() {
-    const singleLineProps = this.singleLineFields.reduce(
+    const fieldProps = [
+      ...this.singleLineFields,
+      ...this.multiLineFields
+    ].reduce(
       (acc, field) => ({
         [this.formatLabelToPropertyName(field)]: '',
         ...acc
       }),
       {}
     )
-    const multiLineProps = this.multiLineFields.reduce(
+    const checkboxProps = this.checkboxes.reduce(
       (acc, field) => ({
-        [this.formatLabelToPropertyName(field)]: '',
+        [this.formatLabelToPropertyName(field)]: false,
         ...acc
       }),
       {}
     )
-    this.setState({ ...this.state, ...singleLineProps, ...multiLineProps })
+    // const singleLineProps = this.singleLineFields.reduce(
+    //   (acc, field) => ({
+    //     [this.formatLabelToPropertyName(field)]: '',
+    //     ...acc
+    //   }),
+    //   {}
+    // )
+    // const multiLineProps = this.multiLineFields.reduce(
+    //   (acc, field) => ({
+    //     [this.formatLabelToPropertyName(field)]: '',
+    //     ...acc
+    //   }),
+    //   {}
+    // )
+    //this.setState({ ...this.state, ...singleLineProps, ...multiLineProps })
+    this.setState({ ...this.state, ...fieldProps, ...checkboxProps })
   }
   render() {
     const SingleLineElement = (label, idx) => {
@@ -107,6 +144,20 @@ class ServiceRequest extends Component {
         </div>
       )
     }
+    const CheckboxElement = (label, idx) => {
+      let formattedLabel = this.formatLabelToPropertyName(label)
+      return (
+        <div key={idx} className="col s12 m6">
+          <Checkbox
+            label={label}
+            style={styles.checkbox}
+            name={formattedLabel}
+            onClick={this.handleInputChange}
+            checked={this.state[formattedLabel]}
+          />
+        </div>
+      )
+    }
     return (
       <div className="container">
         <div className="row">
@@ -125,7 +176,7 @@ class ServiceRequest extends Component {
           <div className="col s12 m6">
             <DatePicker hintText="Desired Completion Date" />
           </div>
-          <div className="col s12 m6">
+          <div className="col s12 m6 file-upload">
             {/* <MaterializeRaisedButton
       label="Upload File"
       labelPosition="before"
@@ -139,35 +190,20 @@ class ServiceRequest extends Component {
           </div>
         </div>
         <div className="row">
-          <div className="col s12 m6">
-            <Checkbox label="Simple" style={styles.checkbox} />
-            <Checkbox label="Simple" style={styles.checkbox} />
-            <Checkbox label="Simple" style={styles.checkbox} />
-            <Checkbox label="Simple" style={styles.checkbox} />
-            <Checkbox label="Simple" style={styles.checkbox} />
-            <Checkbox label="Simple" style={styles.checkbox} />
-            <Checkbox label="Simple" style={styles.checkbox} />
-            <Checkbox label="Simple" style={styles.checkbox} />
-          </div>
-          <div className="col s12 m6">
-            <Checkbox label="Simple" style={styles.checkbox} />
-            <Checkbox label="Simple" style={styles.checkbox} />
-            <Checkbox label="Simple" style={styles.checkbox} />
-            <Checkbox label="Simple" style={styles.checkbox} />
-            <Checkbox label="Simple" style={styles.checkbox} />
-            <Checkbox label="Simple" style={styles.checkbox} />
-            <Checkbox label="Simple" style={styles.checkbox} />
-            <Checkbox label="Simple" style={styles.checkbox} />
-          </div>
+          {this.checkboxes.map((boxName, i) => CheckboxElement(boxName, i))}
         </div>
         <div className="row">
-          <div className="col s12">
+          <div className="col s12 planning-guide-checkbox">
             <MaterializeRaisedButton label="Submit" primary={true} />
             <Checkbox
               label={
                 <span>
                   I have read the{' '}
-                  <Link to="/planning-guide" style={{ fontWeight: 500 }}>
+                  <Link
+                    to="/planning-guide"
+                    style={{ fontWeight: 500 }}
+                    target="_blank"
+                  >
                     Planning Guide
                   </Link>
                 </span>

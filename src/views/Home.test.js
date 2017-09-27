@@ -1,9 +1,5 @@
 /* eslint-env jest */
-import nightmare from 'nightmare'
-
-const visit = path => {
-  return nightmare().goto('http://localhost:3000' + path)
-}
+import { visit } from './testUtils'
 
 describe('Home Page', () => {
   it('contains "Resource Center"', async () => {
@@ -12,7 +8,7 @@ describe('Home Page', () => {
 
     expect(text).toContain('Resource Center')
   })
-
+  /*
   it('shows 6 cards', async () => {
     const page = visit('/')
     const selector = '.container .col.s12.m4'
@@ -23,4 +19,5 @@ describe('Home Page', () => {
 
     expect(cardCount).toEqual(6)
   })
+*/
 })

@@ -16,14 +16,16 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "test-without-watch": "cross-env CI=true npm test",
     "eject": "react-scripts eject",
     "prettyWithStandard": "prettier 'src/!(registerServiceWorker).js' 'src/components/**/*.js' '*.js' --write --single-quote --no-semi && standard --fix",
     "pretty": "prettier 'src/!(registerServiceWorker).js' 'src/components/**/*.js' '*.js' --write --single-quote --no-semi",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged && npm run test-without-watch"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
     "chai": "^4.1.2",
+    "cross-env": "^5.0.5",
     "eslint": "^4.7.0",
     "eslint-plugin-react": "^7.3.0",
     "eslint-watch": "^3.1.2",
